@@ -1,0 +1,15 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\src",
+    "\\src\\app",
+    "\\src\\app\\action",
+    "\\src\\app\\automator-group\\automator",
+    "\\src\\app\\automator-group\\automators",
+    "\\src\\app\\automator-group\\search-automator",
+    "\\src\\app\\model\\prestige",
+    "\\src\\themes"
+  ],
+  "SelectedNode": "\\src\\assets",
+  "PreviewInSolutionExplorer": false
+}
