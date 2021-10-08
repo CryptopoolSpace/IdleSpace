@@ -19,7 +19,7 @@ describe("PriceLineComponent", () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(PriceLineComponent);
     component = fixture.componentInstance;
-    component.unit = getGame().resourceManager.metal;
+    component.unit = getGame().resourceManager.Polybees;
     fixture.detectChanges();
   });
 

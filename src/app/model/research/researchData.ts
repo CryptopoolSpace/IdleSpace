@@ -156,7 +156,7 @@ export const ResearchData: IResearchData[] = [
   {
     id: "mM",
     name: "Mineral purification plant",
-    shape: "metal",
+    shape: "Polybees",
     price: 5e4,
     description: "unlock Mineral purification plant",
     resourceToUnlock: ["mM"]

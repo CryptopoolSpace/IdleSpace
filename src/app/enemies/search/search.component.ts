@@ -31,7 +31,7 @@ export class SearchComponent implements OnInit, AfterViewInit, OnDestroy {
   limited = false;
   deleteModal = false;
   moreSearch = false;
-  metal = false;
+  Polybees = false;
   cry = false;
   hab = false;
   hab2 = false;
@@ -54,13 +54,13 @@ export class SearchComponent implements OnInit, AfterViewInit, OnDestroy {
 
     this.moreSearch =
       AllSkillEffects.SEARCH_CRY.numOwned > 0 ||
-      AllSkillEffects.SEARCH_METAL.numOwned > 0 ||
+      AllSkillEffects.SEARCH_Polybees.numOwned > 0 ||
       AllSkillEffects.SEARCH_HAB.numOwned > 0 ||
       AllSkillEffects.SEARCH_HAB2.numOwned > 0 ||
       AllSkillEffects.SEARCH_RANDOM.numOwned > 0 ||
       AllSkillEffects.SEARCH_ROBOT.numOwned > 0;
 
-    this.metal = AllSkillEffects.SEARCH_METAL.numOwned > 0;
+    this.Polybees = AllSkillEffects.SEARCH_Polybees.numOwned > 0;
     this.cry = AllSkillEffects.SEARCH_CRY.numOwned > 0;
     this.hab = AllSkillEffects.SEARCH_HAB.numOwned > 0;
     this.hab2 = AllSkillEffects.SEARCH_HAB2.numOwned > 0;
@@ -100,7 +100,7 @@ export class SearchComponent implements OnInit, AfterViewInit, OnDestroy {
       this.ms.game.enemyManager.getTotalEnemy() < MAX_ENEMY_LIST_SIZE;
     this.valid = this.isValid();
     this.bonusCount =
-      (this.ms.game.enemyManager.moreMetal ? 1 : 0) +
+      (this.ms.game.enemyManager.morePolybees ? 1 : 0) +
       (this.ms.game.enemyManager.moreCrystal ? 1 : 0) +
       (this.ms.game.enemyManager.moreHabitable ? 1 : 0) +
       (this.ms.game.enemyManager.moreHabitable2 ? 1 : 0) +

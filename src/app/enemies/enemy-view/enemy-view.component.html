@@ -18,8 +18,8 @@
       ></app-formatted-quantity>
     </p>
     <p *ngIf="enemy.bonusCount > 0">
-      <span class="label label-info" *ngIf="enemy.moreMetal"
-        >More Metal District</span
+      <span class="label label-info" *ngIf="enemy.morePolybees"
+        >More Polybees District</span
       >
       <span class="label label-success" *ngIf="enemy.moreCrystal"
         >More Crystal District</span
@@ -36,7 +36,7 @@
     </p>
     <p>
       <span class="label label-info"
-        >Metal District
+        >Polybees District
         {{ enemy.baseMining }}
       </span>
       <span class="label label-success"

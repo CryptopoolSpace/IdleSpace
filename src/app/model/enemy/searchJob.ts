@@ -14,7 +14,7 @@ export class SearchJob implements IJob {
   progress = new Decimal(0);
   progressPercent = 0;
 
-  moreMetal = false;
+  morePolybees = false;
   moreCrystal = false;
   moreHabitableSpace = false;
   moreHabitableSpace2 = false;
@@ -36,7 +36,7 @@ export class SearchJob implements IJob {
     if ("t" in data) job.total = MyFromDecimal(data.t);
     if ("l" in data) job.level = data.l;
 
-    if ("mm" in data) job.moreMetal = data.mm;
+    if ("mm" in data) job.morePolybees = data.mm;
     if ("mc" in data) job.moreCrystal = data.mc;
     if ("mh" in data) job.moreHabitableSpace = data.mh;
     if ("mh2" in data) job.moreHabitableSpace2 = data.mh2;
@@ -68,7 +68,7 @@ export class SearchJob implements IJob {
   }
   generateNameDescription() {
     const bonusCount =
-      (this.moreMetal ? 1 : 0) +
+      (this.morePolybees ? 1 : 0) +
       (this.moreCrystal ? 1 : 0) +
       (this.moreRobot ? 1 : 0) +
       (this.moreHabitableSpace || this.moreHabitableSpace2 ? 1 : 0);
@@ -77,8 +77,8 @@ export class SearchJob implements IJob {
         this.name = "Standard search";
         break;
       case 1:
-        this.name = this.moreMetal
-          ? "Metal search"
+        this.name = this.morePolybees
+          ? "Polybees search"
           : this.moreCrystal
           ? "Crystal search"
           : this.moreHabitableSpace
@@ -89,7 +89,7 @@ export class SearchJob implements IJob {
         break;
       case 2:
       case 3:
-        this.name = this.moreMetal ? "Metal & " : "";
+        this.name = this.morePolybees ? "Polybees & " : "";
         this.name += this.moreCrystal ? "Crystal " : "";
         this.name +=
           this.moreCrystal &&
@@ -117,7 +117,7 @@ export class SearchJob implements IJob {
 
     this.description =
       "Level " + EnemyManager.romanPipe.transform(this.level) + " ";
-    if (this.moreMetal) this.description += "More Metals ";
+    if (this.morePolybees) this.description += "More Polybeess ";
     if (this.moreCrystal) this.description += "More Crystals ";
     if (this.moreHabitableSpace) this.description += "More Space ";
     if (this.moreHabitableSpace2) this.description += "Even More Space ";
@@ -167,7 +167,7 @@ export class SearchJob implements IJob {
     data.p = this.progress;
     data.t = this.total;
     data.l = this.level;
-    if (this.moreMetal) data.mm = this.moreMetal;
+    if (this.morePolybees) data.mm = this.morePolybees;
     if (this.moreCrystal) data.mc = this.moreCrystal;
     if (this.moreHabitableSpace2) data.mh2 = this.moreHabitableSpace2;
     if (this.moreRobot) data.mr = this.moreRobot;

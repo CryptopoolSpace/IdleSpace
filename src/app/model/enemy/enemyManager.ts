@@ -26,7 +26,7 @@ import { MyFromDecimal } from "../utility/myUtility";
 export const MAX_ENEMY_LIST_SIZE = 10;
 const DARK_MATTER_START_LEVEL = 2;
 const DARK_MATTER_MULTI = 3;
-const METAL_REWARD = 500;
+const Polybees_REWARD = 500;
 const CRYSTAL_REWARD = 350;
 const ALLOY_REWARD = 250;
 const RESEARCH_REWARD = 2e3;
@@ -38,7 +38,7 @@ export const TERRAFORMER_MULTI = 0.01;
 
 const RANDOM_REWARDS = [
   Reward.HabitableSpace,
-  Reward.MetalMine,
+  Reward.PolybeesMine,
   Reward.CrystalMine,
   Reward.Robot,
   Reward.Alloy,
@@ -59,7 +59,7 @@ export class EnemyManager implements ISalvable {
   searchJobs = new Array<SearchJob>();
   fightEnemy: Enemy;
 
-  moreMetal = false;
+  morePolybees = false;
   moreCrystal = false;
   moreHabitable = false;
   moreHabitable2 = false;
@@ -302,7 +302,7 @@ export class EnemyManager implements ISalvable {
         reward === Reward.Enemy &&
         !ResourceManager.getInstance().searchX1.unlocked
       ) {
-        reward = Reward.MetalMine;
+        reward = Reward.PolybeesMine;
       }
     }
     if (reward) {
@@ -332,19 +332,19 @@ export class EnemyManager implements ISalvable {
           ResearchManager.getInstance().update(gain);
           break;
 
-        case Reward.MetalMine:
+        case Reward.PolybeesMine:
           if (addSpace) {
             resMan.miningDistrict.quantity = resMan.miningDistrict.quantity.plus(
               gainDistrict
             );
             this.addOrUpdateMessages(resMan.miningDistrict.name, gainDistrict);
           }
-          gain = new Decimal(METAL_REWARD * this.currentEnemy.level).times(
+          gain = new Decimal(Polybees_REWARD * this.currentEnemy.level).times(
             prestigeMulti
           );
-          resMan.metal.quantity = resMan.metal.quantity.plus(gain);
-          resMan.metal.quantity = resMan.metal.quantity.min(resMan.metal.limit);
-          this.addOrUpdateMessages(resMan.metal.name, gain);
+          resMan.Polybees.quantity = resMan.Polybees.quantity.plus(gain);
+          resMan.Polybees.quantity = resMan.Polybees.quantity.min(resMan.Polybees.limit);
+          this.addOrUpdateMessages(resMan.Polybees.name, gain);
           break;
 
         case Reward.CrystalMine:
@@ -422,7 +422,7 @@ export class EnemyManager implements ISalvable {
   getRequiredSearch(level: number): Decimal {
     level =
       level +
-      (this.moreMetal ? 1 : 0) +
+      (this.morePolybees ? 1 : 0) +
       (this.moreCrystal ? 1 : 0) +
       (this.moreHabitable ? 1 : 0) +
       (this.randomized ? 1 : 0) +
@@ -436,7 +436,7 @@ export class EnemyManager implements ISalvable {
   startSearching(level: number) {
     const searchJob = new SearchJob();
     searchJob.level = level;
-    searchJob.moreMetal = this.moreMetal;
+    searchJob.morePolybees = this.morePolybees;
     searchJob.moreCrystal = this.moreCrystal;
     searchJob.moreHabitableSpace = this.moreHabitable;
     searchJob.moreHabitableSpace2 = this.moreHabitable2;
@@ -534,7 +534,7 @@ export class EnemyManager implements ISalvable {
     data.not = EnemyManager.NewOnTop;
     data.x = this.autoNext;
 
-    if (this.moreMetal) data.mm = this.moreMetal;
+    if (this.morePolybees) data.mm = this.morePolybees;
     if (this.moreCrystal) data.mc = this.moreCrystal;
     if (this.moreHabitable) data.mh = this.moreHabitable;
     if (this.moreHabitable2) data.mh2 = this.moreHabitable2;
@@ -581,7 +581,7 @@ export class EnemyManager implements ISalvable {
     if ("x" in data) this.autoNext = data.x;
     if ("not" in data) EnemyManager.NewOnTop = data.not;
 
-    if ("mm" in data) this.moreMetal = data.mm;
+    if ("mm" in data) this.morePolybees = data.mm;
     if ("mc" in data) this.moreCrystal = data.mc;
     if ("mh" in data) this.moreHabitable = data.mh;
     if ("mh2" in data) this.moreHabitable2 = data.mh2;

@@ -76,13 +76,13 @@
 
           <!-- Search options -->
           <div class="btn-group" *ngIf="moreSearch">
-            <div class="checkbox btn" *ngIf="metal">
+            <div class="checkbox btn" *ngIf="Polybees">
               <input
                 type="checkbox"
                 id="btn-mmd"
-                [(ngModel)]="ms.game.enemyManager.moreMetal"
+                [(ngModel)]="ms.game.enemyManager.morePolybees"
                 [disabled]="
-                  !ms.game.enemyManager.moreMetal && this.bonusCount >= 3
+                  !ms.game.enemyManager.morePolybees && this.bonusCount >= 3
                 "
               />
               <label for="btn-mmd">

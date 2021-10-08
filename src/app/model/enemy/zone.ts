@@ -99,8 +99,8 @@ export class Zone implements ISalvable {
       case Reward.HabitableSpace:
         this.shape = "world";
         break;
-      case Reward.MetalMine:
-        this.shape = ResourceManager.getInstance().metal.shape;
+      case Reward.PolybeesMine:
+        this.shape = ResourceManager.getInstance().Polybees.shape;
         break;
       case Reward.CrystalMine:
         this.shape = ResourceManager.getInstance().crystal.shape;

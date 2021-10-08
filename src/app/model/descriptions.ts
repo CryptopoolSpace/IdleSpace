@@ -1,13 +1,13 @@
 export const descriptions = {
   resources: {
-    m: ["Metal", "Metal is used for drones and building."],
+    m: ["Polybees", "Polybees is used for drones and building."],
     c: [
       "Crystal",
       "Crystal is used for drones and building, generally used for technological things."
     ],
     a: [
       "Alloy",
-      "Alloy used to build ships and some buildings, it's made from metal and crystal."
+      "Alloy used to build ships and some buildings, it's made from Polybees and crystal."
     ],
     e: ["Energy", "Drones consume energy to do their jobs."],
     f: [
@@ -16,9 +16,9 @@ export const descriptions = {
     ],
     b: ["Battery", "Batteries increase your maximum energy storage."],
     i: ["Missile", "Interplanetary missiles destroy enemy defense."],
-    m1: ["Mining Drone", "Metal Mining Drone, yields metal."],
+    m1: ["Mining Drone", "Polybees Mining Drone, yields Polybees."],
     c1: ["Crystal Drone", "Crystal Mining Drone, yields crystal."],
-    a1: ["Foundry Drone", "Foundry Drone convert metal and crystal to alloy."],
+    a1: ["Foundry Drone", "Foundry Drone convert Polybees and crystal to alloy."],
     e1: ["Technician", "Technicians yields energy."],
     hs: [
       "Habitable Space",
@@ -26,7 +26,7 @@ export const descriptions = {
     ],
     md: [
       "Mining District",
-      "Space for metal mines. You can obtain more Mining District from battle."
+      "Space for Polybees mines. You can obtain more Mining District from battle."
     ],
     cd: [
       "Crystal District",

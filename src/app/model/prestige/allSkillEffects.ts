@@ -42,7 +42,7 @@ export class AllSkillEffects {
   static readonly FAST_COMBAT = new SkillEffect(10, "1", 1);
   //#endregion
   //#region Limit increase
-  static readonly PLUS_METAL_MINER = new SkillEffect(0, "1");
+  static readonly PLUS_Polybees_MINER = new SkillEffect(0, "1");
   static readonly PLUS_CRYSTAL_MINER = new SkillEffect(1, "1");
   static readonly PLUS_ENERGY = new SkillEffect(2, "1");
   static readonly PLUS_ALLOY = new SkillEffect(3, "1");
@@ -66,7 +66,7 @@ export class AllSkillEffects {
   static readonly MODDING_PLUS = new SkillEffect(18, "S", 5);
   static readonly DOUBLE_MODDING = new SkillEffect(19, "S", 2);
 
-  static readonly MOD_METAL_MINER = new SkillEffect(20, "3");
+  static readonly MOD_Polybees_MINER = new SkillEffect(20, "3");
   static readonly MOD_CRYSTAL_MINER = new SkillEffect(21, "3");
   static readonly MOD_ENERGY = new SkillEffect(22, "3");
   static readonly MOD_ALLOY = new SkillEffect(23, "3");
@@ -77,7 +77,7 @@ export class AllSkillEffects {
   //#endregion
   //#region Search
   static readonly SEARCH_MULTI = new SkillEffect(28, "2");
-  static readonly SEARCH_METAL = new SkillEffect(29, "S", 1);
+  static readonly SEARCH_Polybees = new SkillEffect(29, "S", 1);
   static readonly SEARCH_CRY = new SkillEffect(30, "S", 1);
   static readonly SEARCH_HAB = new SkillEffect(31, "S", 1);
   static readonly SEARCH_HAB2 = new SkillEffect(32, "S", 1);
@@ -98,7 +98,7 @@ export class AllSkillEffects {
 
     //#region Tier 1
     const resources = [
-      resMan.metal,
+      resMan.Polybees,
       resMan.crystal,
       resMan.energy,
       resMan.computing,
@@ -107,7 +107,7 @@ export class AllSkillEffects {
       resMan.searchProgress
     ];
     const workers = [
-      resMan.metalX1,
+      resMan.PolybeesX1,
       resMan.crystalX1,
       resMan.energyX1,
       resMan.computingX1,
@@ -116,7 +116,7 @@ export class AllSkillEffects {
       resMan.searchX1
     ];
     const tier1 = [
-      AllSkillEffects.PLUS_METAL_MINER,
+      AllSkillEffects.PLUS_Polybees_MINER,
       AllSkillEffects.PLUS_CRYSTAL_MINER,
       AllSkillEffects.PLUS_ENERGY,
       AllSkillEffects.PLUS_CPU,
@@ -125,7 +125,7 @@ export class AllSkillEffects {
       AllSkillEffects.PLUS_SEARCH
     ];
     const mods = [
-      AllSkillEffects.MOD_METAL_MINER,
+      AllSkillEffects.MOD_Polybees_MINER,
       AllSkillEffects.MOD_CRYSTAL_MINER,
       AllSkillEffects.MOD_ENERGY,
       AllSkillEffects.MOD_CPU,
@@ -311,18 +311,18 @@ export class AllSkillEffects {
       new Bonus(AllSkillEffects.SEARCH_MULTI, 3, true)
     );
 
-    AllSkillEffects.SEARCH_METAL.limit = new Decimal(1);
-    AllSkillEffects.SEARCH_METAL.isLimited = true;
-    AllSkillEffects.SEARCH_METAL.getDescription = (num = 1) => {
+    AllSkillEffects.SEARCH_Polybees.limit = new Decimal(1);
+    AllSkillEffects.SEARCH_Polybees.isLimited = true;
+    AllSkillEffects.SEARCH_Polybees.getDescription = (num = 1) => {
       return (
         "+ " +
         MainService.formatPipe.transform(50 * num, true) +
-        "% Searching, can search for metal district"
+        "% Searching, can search for Polybees district"
       );
     };
-    AllSkillEffects.SEARCH_METAL.name = "Prestige search metal";
+    AllSkillEffects.SEARCH_Polybees.name = "Prestige search Polybees";
     resMan.searchX1.productionMultiplier.additiveBonus.push(
-      new Bonus(AllSkillEffects.SEARCH_METAL, 0.5, true)
+      new Bonus(AllSkillEffects.SEARCH_Polybees, 0.5, true)
     );
 
     AllSkillEffects.SEARCH_CRY.limit = new Decimal(1);
@@ -459,7 +459,7 @@ export class AllSkillEffects {
 
     AllSkillEffects.effectList = [
       AllSkillEffects.DRONE_MULTI,
-      AllSkillEffects.PLUS_METAL_MINER,
+      AllSkillEffects.PLUS_Polybees_MINER,
       AllSkillEffects.PLUS_CRYSTAL_MINER,
       AllSkillEffects.PLUS_ALLOY,
       AllSkillEffects.PLUS_ENERGY,
@@ -472,7 +472,7 @@ export class AllSkillEffects {
       AllSkillEffects.FACTORY_BONUS,
       AllSkillEffects.MODDING_PLUS,
       AllSkillEffects.SEARCH_MULTI,
-      AllSkillEffects.SEARCH_METAL,
+      AllSkillEffects.SEARCH_Polybees,
       AllSkillEffects.SEARCH_CRY,
       AllSkillEffects.SEARCH_HAB,
       AllSkillEffects.DOUBLE_DARK_MATTER,
@@ -485,7 +485,7 @@ export class AllSkillEffects {
       AllSkillEffects.MODULE_LEVEL,
       AllSkillEffects.DOUBLE_BATTLE_GAIN,
       AllSkillEffects.DOUBLE_MISSILE,
-      AllSkillEffects.MOD_METAL_MINER,
+      AllSkillEffects.MOD_Polybees_MINER,
       AllSkillEffects.MOD_CRYSTAL_MINER,
       AllSkillEffects.MOD_ENERGY,
       AllSkillEffects.MOD_CPU,

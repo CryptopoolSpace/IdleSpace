@@ -36,7 +36,7 @@ export class Enemy {
   currentZone: Zone;
   totalNavalCap = new Decimal(0);
 
-  moreMetal = false;
+  morePolybees = false;
   moreCrystal = false;
   moreHabitableSpace = false;
   moreHabitableSpace2 = false;
@@ -52,7 +52,7 @@ export class Enemy {
   static generate(searchJob: SearchJob): Enemy {
     const enemy = new Enemy();
     const level = searchJob.level;
-    enemy.moreMetal = searchJob.moreMetal;
+    enemy.morePolybees = searchJob.morePolybees;
     enemy.moreCrystal = searchJob.moreCrystal;
     enemy.moreHabitableSpace = searchJob.moreHabitableSpace;
     enemy.moreHabitableSpace2 = searchJob.moreHabitableSpace2;
@@ -68,7 +68,7 @@ export class Enemy {
       enemy.baseHabitable =
         7 - enemy.baseMining - enemy.baseCrystal - enemy.baseRobot;
     }
-    if (enemy.moreMetal) enemy.baseMining++;
+    if (enemy.morePolybees) enemy.baseMining++;
     if (enemy.moreCrystal) enemy.baseCrystal++;
     if (enemy.moreHabitableSpace) enemy.baseHabitable++;
     if (enemy.moreHabitableSpace2) enemy.baseHabitable++;
@@ -78,7 +78,7 @@ export class Enemy {
       if (Math.random() < enemy.level / (enemy.level + 100 * n)) {
         const bon = Math.random();
         if (bon < 1 / 3) {
-          enemy.moreMetal = true;
+          enemy.morePolybees = true;
         } else if (bon < 2 / 3) {
           enemy.moreCrystal = true;
         } else {
@@ -247,7 +247,7 @@ export class Enemy {
     if ("n" in data) enemy.name = data.n;
     if ("l" in data) enemy.level = data.l;
     if ("h" in data) enemy.shape = data.h;
-    if ("mm" in data) enemy.moreMetal = data.mm;
+    if ("mm" in data) enemy.morePolybees = data.mm;
     if ("mc" in data) enemy.moreCrystal = data.mc;
     if ("mh" in data) enemy.moreHabitableSpace = data.mh;
     if ("mh2" in data) enemy.moreHabitableSpace2 = data.mh2;
@@ -286,7 +286,7 @@ export class Enemy {
   }
   private loadBonusCount() {
     this.bonusCount =
-      (this.moreMetal ? 1 : 0) +
+      (this.morePolybees ? 1 : 0) +
       (this.moreCrystal ? 1 : 0) +
       (this.moreHabitableSpace ? 1 : 0) +
       (this.moreHabitableSpace2 ? 1 : 0) +
@@ -355,11 +355,11 @@ export class Enemy {
         for (let k = 0; k < 10; k++) otherZones.push(this.zones[i - k]);
         otherZones = shuffle(otherZones);
 
-        // Metal
-        const metalCount = this.baseMining;
-        for (let j = 0; j < metalCount; j++) {
+        // Polybees
+        const PolybeesCount = this.baseMining;
+        for (let j = 0; j < PolybeesCount; j++) {
           const rand = otherZones.pop();
-          rand.reward = Reward.MetalMine;
+          rand.reward = Reward.PolybeesMine;
           otherZones = otherZones.filter(z => !z.reward);
         }
 
@@ -412,7 +412,7 @@ export class Enemy {
       data.z = this.zones.map(z => z.getSave());
     }
     if (this.currentZone) data.c = this.currentZone.number;
-    if (this.moreMetal) data.mm = this.moreMetal;
+    if (this.morePolybees) data.mm = this.morePolybees;
     if (this.moreCrystal) data.mc = this.moreCrystal;
     if (this.moreHabitableSpace) data.mh = this.moreHabitableSpace;
     if (this.moreHabitableSpace2) data.mh2 = this.moreHabitableSpace2;

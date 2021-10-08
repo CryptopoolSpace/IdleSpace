@@ -47,7 +47,7 @@ export class ResourceComponent implements OnInit, OnDestroy, AfterViewInit {
   getUnit(params: any) {
     let id = params.id;
     if (id === undefined) {
-      id = this.ms.game.resourceManager.metal.id;
+      id = this.ms.game.resourceManager.Polybees.id;
     }
     let b: Resource;
 
