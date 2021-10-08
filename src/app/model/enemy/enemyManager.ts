@@ -27,7 +27,7 @@ export const MAX_ENEMY_LIST_SIZE = 10;
 const DARK_MATTER_START_LEVEL = 2;
 const DARK_MATTER_MULTI = 3;
 const Polybees_REWARD = 500;
-const CRYSTAL_REWARD = 350;
+const Nectar_REWARD = 350;
 const ALLOY_REWARD = 250;
 const RESEARCH_REWARD = 2e3;
 const ROBOT_REWARD = 0.5;
@@ -39,7 +39,7 @@ export const TERRAFORMER_MULTI = 0.01;
 const RANDOM_REWARDS = [
   Reward.HabitableSpace,
   Reward.PolybeesMine,
-  Reward.CrystalMine,
+  Reward.NectarMine,
   Reward.Robot,
   Reward.Alloy,
   Reward.Enemy
@@ -60,7 +60,7 @@ export class EnemyManager implements ISalvable {
   fightEnemy: Enemy;
 
   morePolybees = false;
-  moreCrystal = false;
+  moreNectar = false;
   moreHabitable = false;
   moreHabitable2 = false;
   randomized = false;
@@ -347,21 +347,21 @@ export class EnemyManager implements ISalvable {
           this.addOrUpdateMessages(resMan.Polybees.name, gain);
           break;
 
-        case Reward.CrystalMine:
+        case Reward.NectarMine:
           if (addSpace) {
-            resMan.crystalDistrict.quantity = resMan.crystalDistrict.quantity.plus(
+            resMan.NectarDistrict.quantity = resMan.NectarDistrict.quantity.plus(
               gainDistrict
             );
-            this.addOrUpdateMessages(resMan.crystalDistrict.name, gainDistrict);
+            this.addOrUpdateMessages(resMan.NectarDistrict.name, gainDistrict);
           }
-          gain = new Decimal(CRYSTAL_REWARD * this.currentEnemy.level).times(
+          gain = new Decimal(Nectar_REWARD * this.currentEnemy.level).times(
             prestigeMulti
           );
-          resMan.crystal.quantity = resMan.crystal.quantity.plus(gain);
-          resMan.crystal.quantity = resMan.crystal.quantity.min(
-            resMan.crystal.limit
+          resMan.Nectar.quantity = resMan.Nectar.quantity.plus(gain);
+          resMan.Nectar.quantity = resMan.Nectar.quantity.min(
+            resMan.Nectar.limit
           );
-          this.addOrUpdateMessages(resMan.crystal.name, gain);
+          this.addOrUpdateMessages(resMan.Nectar.name, gain);
           break;
 
         case Reward.Robot:
@@ -423,7 +423,7 @@ export class EnemyManager implements ISalvable {
     level =
       level +
       (this.morePolybees ? 1 : 0) +
-      (this.moreCrystal ? 1 : 0) +
+      (this.moreNectar ? 1 : 0) +
       (this.moreHabitable ? 1 : 0) +
       (this.randomized ? 1 : 0) +
       (this.moreHabitable2 ? 1 : 0) +
@@ -437,7 +437,7 @@ export class EnemyManager implements ISalvable {
     const searchJob = new SearchJob();
     searchJob.level = level;
     searchJob.morePolybees = this.morePolybees;
-    searchJob.moreCrystal = this.moreCrystal;
+    searchJob.moreNectar = this.moreNectar;
     searchJob.moreHabitableSpace = this.moreHabitable;
     searchJob.moreHabitableSpace2 = this.moreHabitable2;
     searchJob.randomized = this.randomized;
@@ -535,7 +535,7 @@ export class EnemyManager implements ISalvable {
     data.x = this.autoNext;
 
     if (this.morePolybees) data.mm = this.morePolybees;
-    if (this.moreCrystal) data.mc = this.moreCrystal;
+    if (this.moreNectar) data.mc = this.moreNectar;
     if (this.moreHabitable) data.mh = this.moreHabitable;
     if (this.moreHabitable2) data.mh2 = this.moreHabitable2;
     if (this.randomized) data.ra = this.randomized;
@@ -582,7 +582,7 @@ export class EnemyManager implements ISalvable {
     if ("not" in data) EnemyManager.NewOnTop = data.not;
 
     if ("mm" in data) this.morePolybees = data.mm;
-    if ("mc" in data) this.moreCrystal = data.mc;
+    if ("mc" in data) this.moreNectar = data.mc;
     if ("mh" in data) this.moreHabitable = data.mh;
     if ("mh2" in data) this.moreHabitable2 = data.mh2;
     if ("ra" in data) this.randomized = data.ra;

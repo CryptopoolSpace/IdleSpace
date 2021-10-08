@@ -58,14 +58,14 @@
           </span>
         </span>
         <span class="moduleSubTitle">
-          energy:
+          Honey:
           <span
             [ngClass]="{
-              'text-danger': design.editable.totalEnergy.lt(0)
+              'text-danger': design.editable.totalHoney.lt(0)
             }"
           >
             <app-formatted-quantity
-              [quantity]="design.editable.totalEnergy"
+              [quantity]="design.editable.totalHoney"
             ></app-formatted-quantity>
           </span>
         </span>
@@ -260,9 +260,9 @@
                   <br />
                   Too many module points
                 </ng-container>
-                <ng-container *ngIf="design.editable.totalEnergy.lt(0)">
+                <ng-container *ngIf="design.editable.totalHoney.lt(0)">
                   <br />
-                  No enough energy
+                  No enough Honey
                 </ng-container>
               </span>
             </clr-alert-item>

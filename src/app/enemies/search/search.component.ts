@@ -101,7 +101,7 @@ export class SearchComponent implements OnInit, AfterViewInit, OnDestroy {
     this.valid = this.isValid();
     this.bonusCount =
       (this.ms.game.enemyManager.morePolybees ? 1 : 0) +
-      (this.ms.game.enemyManager.moreCrystal ? 1 : 0) +
+      (this.ms.game.enemyManager.moreNectar ? 1 : 0) +
       (this.ms.game.enemyManager.moreHabitable ? 1 : 0) +
       (this.ms.game.enemyManager.moreHabitable2 ? 1 : 0) +
       (this.ms.game.enemyManager.moreRobot ? 1 : 0);

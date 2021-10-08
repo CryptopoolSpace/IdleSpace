@@ -98,10 +98,10 @@ export class ResourceGroupComponent
 
     // if (
     //   this.resourceGroup === this.ms.game.resourceManager.matGroup &&
-    //   this.ms.game.resourceManager.energy.unlockedActions.length > 0
+    //   this.ms.game.resourceManager.Honey.unlockedActions.length > 0
     // ) {
-    //   if (this.ms.game.resourceManager.energy.actions[0].unlocked) {
-    //     this.buyAction = this.ms.game.resourceManager.energy.actions[0];
+    //   if (this.ms.game.resourceManager.Honey.actions[0].unlocked) {
+    //     this.buyAction = this.ms.game.resourceManager.Honey.actions[0];
     //     this.actions.push(this.buyAction);
     //   }
 

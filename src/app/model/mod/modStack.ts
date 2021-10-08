@@ -9,14 +9,14 @@ import { AllSkillEffects } from "../prestige/allSkillEffects";
 
 export const MOD_EFFICIENCY = 0.1;
 export const MOD_PRODUCTION = 0.2;
-export const MOD_ENERGY = -0.05;
+export const MOD_Honey = -0.05;
 export const MOD_MORE = 1;
 
 export class ModStack implements ISalvable {
   mods: Mod[];
   efficiency: Mod;
   production: Mod;
-  energyMod: Mod;
+  HoneyMod: Mod;
   priceMod: Mod;
   moreDrones: Mod;
   resource: Resource;
@@ -34,7 +34,7 @@ export class ModStack implements ISalvable {
       new Bonus(this.efficiency, MOD_EFFICIENCY, true)
     );
 
-    if (resource !== ResourceManager.getInstance().energyX1) {
+    if (resource !== ResourceManager.getInstance().HoneyX1) {
       this.production = new Mod("p");
       this.mods.push(this.production);
       resource.productionMultiplier.additiveBonus.push(
@@ -44,18 +44,18 @@ export class ModStack implements ISalvable {
     this.priceMod = new Mod("s");
     this.mods.push(this.priceMod);
 
-    //  Energy
-    if (resource !== ResourceManager.getInstance().energyX1) {
-      this.energyMod = new Mod("e");
-      this.mods.push(this.energyMod);
-      const energyProd = resource.products.find(
-        p => p.product === ResourceManager.getInstance().energy
+    //  Honey
+    if (resource !== ResourceManager.getInstance().HoneyX1) {
+      this.HoneyMod = new Mod("e");
+      this.mods.push(this.HoneyMod);
+      const HoneyProd = resource.products.find(
+        p => p.product === ResourceManager.getInstance().Honey
       );
-      if (!energyProd.productionMultiplier) {
-        energyProd.productionMultiplier = new BonusStack();
+      if (!HoneyProd.productionMultiplier) {
+        HoneyProd.productionMultiplier = new BonusStack();
       }
-      energyProd.productionMultiplier.multiplicativeBonus.push(
-        new Bonus(this.energyMod, MOD_ENERGY)
+      HoneyProd.productionMultiplier.multiplicativeBonus.push(
+        new Bonus(this.HoneyMod, MOD_Honey)
       );
     }
     this.moreDrones = new Mod("m");

@@ -31,7 +31,7 @@ export class ShipDesign implements ISalvable, IBuyable {
   totalShield = new Decimal();
   totalArmorReduction = new Decimal();
   totalShieldReduction = new Decimal();
-  totalEnergy = new Decimal();
+  totalHoney = new Decimal();
   armorDamage = new Decimal();
   shieldDamage = new Decimal();
   price = new Decimal();
@@ -129,7 +129,7 @@ export class ShipDesign implements ISalvable, IBuyable {
   reload(isPlayer = true) {
     this.totalDamage = new Decimal(0);
     this.totalShield = new Decimal(0);
-    this.totalEnergy = new Decimal(0);
+    this.totalHoney = new Decimal(0);
     this.armorDamage = new Decimal(0);
     this.shieldDamage = new Decimal(0);
     this.totalFleetPower = new Decimal(0);
@@ -163,8 +163,8 @@ export class ShipDesign implements ISalvable, IBuyable {
         }
 
         this.totalDamage = this.totalDamage.plus(w.computedDamage);
-        this.totalEnergy = this.totalEnergy.plus(
-          w.module.energyBalance.times(bonus).times(w.size)
+        this.totalHoney = this.totalHoney.plus(
+          w.module.HoneyBalance.times(bonus).times(w.size)
         );
         this.totalArmor = this.totalArmor.plus(
           w.module.armor.times(bonus).times(sizeFactor)
@@ -227,10 +227,10 @@ export class ShipDesign implements ISalvable, IBuyable {
       .plus(this.totalShield)
       .plus(this.totalArmor);
 
-    if (this.type.defense) this.totalEnergy = new Decimal(0);
+    if (this.type.defense) this.totalHoney = new Decimal(0);
 
     this.isValid =
-      this.totalEnergy.gte(0) &&
+      this.totalHoney.gte(0) &&
       this.usedModulePoint <= this.type.modulePoint &&
       this.modules.length <= this.type.moduleCount;
 

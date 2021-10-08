@@ -1,7 +1,7 @@
 import {
   MOD_EFFICIENCY,
   MOD_PRODUCTION,
-  MOD_ENERGY,
+  MOD_Honey,
   MOD_MORE
 } from "./modStack";
 import { MainService } from "src/app/main.service";
@@ -39,15 +39,15 @@ export const ModData = {
     min: -3
   },
   e: {
-    name: "Energy-intensive / Energy-saving",
-    description: "Energy usage",
-    tooltip: "Increase or decrease energy usage",
+    name: "Honey-intensive / Honey-saving",
+    description: "Honey usage",
+    tooltip: "Increase or decrease Honey usage",
     max: 10,
     getBonus: (num: DecimalSource) => {
       return (
         (new Decimal(num).lt(0) ? "+" : "") +
         MainService.formatPipe.transform(
-          Decimal.multiply(MOD_ENERGY, num).times(100)
+          Decimal.multiply(MOD_Honey, num).times(100)
         ) +
         "%"
       );

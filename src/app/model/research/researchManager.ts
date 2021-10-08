@@ -22,7 +22,7 @@ export class ResearchManager {
   //#region Researches
   betterResearch: Research;
   computing: Research;
-  energy: Research;
+  Honey: Research;
   modding: Research;
   telescope: Research;
   scavenger: Research;
@@ -66,7 +66,7 @@ export class ResearchManager {
     this.battleship = this.researches.find(r => r.id === "s");
     this.modding = this.researches.find(r => r.id === "M");
     this.telescope = this.researches.find(r => r.id === "X1");
-    this.energy = this.researches.find(r => r.id === "E");
+    this.Honey = this.researches.find(r => r.id === "E");
     this.scavenger = this.researches.find(r => r.id === "SC");
     this.titan = this.researches.find(r => r.id === "n");
     this.titan.ratio = 1e3;
@@ -78,8 +78,8 @@ export class ResearchManager {
     this.mTheory = this.researches.find(r => r.id === "Mt");
 
     const resMan = ResourceManager.getInstance();
-    resMan.energyX1.productionMultiplier.additiveBonus.push(
-      new Bonus(this.energy, 0.1)
+    resMan.HoneyX1.productionMultiplier.additiveBonus.push(
+      new Bonus(this.Honey, 0.1)
     );
     resMan.computingX1.productionMultiplier.additiveBonus.push(
       new Bonus(this.computing, 0.1, true)

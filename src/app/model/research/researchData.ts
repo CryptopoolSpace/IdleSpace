@@ -15,13 +15,13 @@ export const ResearchData: IResearchData[] = [
   //    End of starting researches  ---------------
   {
     id: "E",
-    name: "Energy",
-    shape: "energy",
+    name: "Honey",
+    shape: "Honey",
     price: 5e3,
-    description: "+10% energy",
+    description: "+10% Honey",
     limit: Number.POSITIVE_INFINITY,
     researchToUnlock: ["CO"],
-    bonus: [["Energy Gain", "+10%"]]
+    bonus: [["Honey Gain", "+10%"]]
   },
 
   {
@@ -163,16 +163,16 @@ export const ResearchData: IResearchData[] = [
   },
   {
     id: "cM",
-    name: "Crystal purification plant",
-    shape: "crystal",
+    name: "Nectar purification plant",
+    shape: "Nectar",
     price: 5e4,
-    description: "unlock Crystal purification plant",
+    description: "unlock Nectar purification plant",
     resourceToUnlock: ["cM"]
   },
   {
     id: "eM",
     name: "Electrical grid",
-    shape: "energy",
+    shape: "Honey",
     price: 5e4,
     description: "unlock Electrical grid",
     resourceToUnlock: ["eM"],

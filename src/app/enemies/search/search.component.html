@@ -95,14 +95,14 @@
               <input
                 type="checkbox"
                 id="btn-mcd"
-                [(ngModel)]="ms.game.enemyManager.moreCrystal"
+                [(ngModel)]="ms.game.enemyManager.moreNectar"
                 [disabled]="
-                  !ms.game.enemyManager.moreCrystal && this.bonusCount >= 3
+                  !ms.game.enemyManager.moreNectar && this.bonusCount >= 3
                 "
               />
               <label for="btn-mcd">
                 <clr-icon
-                  [attr.shape]="ms.game.resourceManager.crystalDistrict.shape"
+                  [attr.shape]="ms.game.resourceManager.NectarDistrict.shape"
                 ></clr-icon
               ></label>
             </div>

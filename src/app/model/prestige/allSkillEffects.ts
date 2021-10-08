@@ -43,14 +43,14 @@ export class AllSkillEffects {
   //#endregion
   //#region Limit increase
   static readonly PLUS_Polybees_MINER = new SkillEffect(0, "1");
-  static readonly PLUS_CRYSTAL_MINER = new SkillEffect(1, "1");
-  static readonly PLUS_ENERGY = new SkillEffect(2, "1");
+  static readonly PLUS_Nectar_MINER = new SkillEffect(1, "1");
+  static readonly PLUS_Honey = new SkillEffect(2, "1");
   static readonly PLUS_ALLOY = new SkillEffect(3, "1");
   static readonly PLUS_CPU = new SkillEffect(4, "1");
   static readonly PLUS_WORKER = new SkillEffect(5, "1");
   static readonly PLUS_SEARCH = new SkillEffect(6, "1");
   static readonly PLUS_WARRIOR = new SkillEffect(7, "1");
-  // static readonly PLUS_BATTERY = new SkillEffect(8, "1");
+  // static readonly PLUS_Hive = new SkillEffect(8, "1");
 
   //#endregion
   //#region Combat
@@ -67,8 +67,8 @@ export class AllSkillEffects {
   static readonly DOUBLE_MODDING = new SkillEffect(19, "S", 2);
 
   static readonly MOD_Polybees_MINER = new SkillEffect(20, "3");
-  static readonly MOD_CRYSTAL_MINER = new SkillEffect(21, "3");
-  static readonly MOD_ENERGY = new SkillEffect(22, "3");
+  static readonly MOD_Nectar_MINER = new SkillEffect(21, "3");
+  static readonly MOD_Honey = new SkillEffect(22, "3");
   static readonly MOD_ALLOY = new SkillEffect(23, "3");
   static readonly MOD_CPU = new SkillEffect(24, "3");
   static readonly MOD_WORKER = new SkillEffect(25, "3");
@@ -86,7 +86,7 @@ export class AllSkillEffects {
   static readonly SEARCH_ROBOT = new SkillEffect(41, "S", 1);
   //#endregion
   //#region Resource Gain Multi
-  static readonly ENERGY_MULTI = new SkillEffect(35, "2");
+  static readonly Honey_MULTI = new SkillEffect(35, "2");
   static readonly ALLOY_MULTI = new SkillEffect(36, "2");
   static readonly COMPUTING_MULTI = new SkillEffect(37, "2");
   static readonly SHIPYARD_MULTI = new SkillEffect(38, "2");
@@ -99,8 +99,8 @@ export class AllSkillEffects {
     //#region Tier 1
     const resources = [
       resMan.Polybees,
-      resMan.crystal,
-      resMan.energy,
+      resMan.Nectar,
+      resMan.Honey,
       resMan.computing,
       resMan.alloy,
       resMan.shipyardProgress,
@@ -108,8 +108,8 @@ export class AllSkillEffects {
     ];
     const workers = [
       resMan.PolybeesX1,
-      resMan.crystalX1,
-      resMan.energyX1,
+      resMan.NectarX1,
+      resMan.HoneyX1,
       resMan.computingX1,
       resMan.alloyX1,
       resMan.shipyardX1,
@@ -117,8 +117,8 @@ export class AllSkillEffects {
     ];
     const tier1 = [
       AllSkillEffects.PLUS_Polybees_MINER,
-      AllSkillEffects.PLUS_CRYSTAL_MINER,
-      AllSkillEffects.PLUS_ENERGY,
+      AllSkillEffects.PLUS_Nectar_MINER,
+      AllSkillEffects.PLUS_Honey,
       AllSkillEffects.PLUS_CPU,
       AllSkillEffects.PLUS_ALLOY,
       AllSkillEffects.PLUS_WORKER,
@@ -126,8 +126,8 @@ export class AllSkillEffects {
     ];
     const mods = [
       AllSkillEffects.MOD_Polybees_MINER,
-      AllSkillEffects.MOD_CRYSTAL_MINER,
-      AllSkillEffects.MOD_ENERGY,
+      AllSkillEffects.MOD_Nectar_MINER,
+      AllSkillEffects.MOD_Honey,
       AllSkillEffects.MOD_CPU,
       AllSkillEffects.MOD_ALLOY,
       AllSkillEffects.MOD_WORKER,
@@ -331,10 +331,10 @@ export class AllSkillEffects {
       return (
         "+ " +
         MainService.formatPipe.transform(50 * num, true) +
-        "% Searching, can search for crystal district"
+        "% Searching, can search for Nectar district"
       );
     };
-    AllSkillEffects.SEARCH_CRY.name = "Prestige search crystal";
+    AllSkillEffects.SEARCH_CRY.name = "Prestige search Nectar";
     resMan.searchX1.productionMultiplier.additiveBonus.push(
       new Bonus(AllSkillEffects.SEARCH_CRY, 0.5, true)
     );
@@ -404,14 +404,14 @@ export class AllSkillEffects {
     );
     //#endregion
     //#region Gain Multi
-    AllSkillEffects.ENERGY_MULTI.getDescription = (num = 1) => {
+    AllSkillEffects.Honey_MULTI.getDescription = (num = 1) => {
       return (
-        "+ " + MainService.formatPipe.transform(200 * num, true) + "%  Energy"
+        "+ " + MainService.formatPipe.transform(200 * num, true) + "%  Honey"
       );
     };
-    AllSkillEffects.ENERGY_MULTI.name = "Prestige energy multi";
-    resMan.energyX1.productionMultiplier.multiplicativeBonus.push(
-      new Bonus(AllSkillEffects.ENERGY_MULTI, 2, true)
+    AllSkillEffects.Honey_MULTI.name = "Prestige Honey multi";
+    resMan.HoneyX1.productionMultiplier.multiplicativeBonus.push(
+      new Bonus(AllSkillEffects.Honey_MULTI, 2, true)
     );
 
     AllSkillEffects.ALLOY_MULTI.getDescription = (num = 1) => {
@@ -460,9 +460,9 @@ export class AllSkillEffects {
     AllSkillEffects.effectList = [
       AllSkillEffects.DRONE_MULTI,
       AllSkillEffects.PLUS_Polybees_MINER,
-      AllSkillEffects.PLUS_CRYSTAL_MINER,
+      AllSkillEffects.PLUS_Nectar_MINER,
       AllSkillEffects.PLUS_ALLOY,
-      AllSkillEffects.PLUS_ENERGY,
+      AllSkillEffects.PLUS_Honey,
       AllSkillEffects.PLUS_CPU,
       AllSkillEffects.PLUS_WORKER,
       AllSkillEffects.PLUS_SEARCH,
@@ -476,7 +476,7 @@ export class AllSkillEffects {
       AllSkillEffects.SEARCH_CRY,
       AllSkillEffects.SEARCH_HAB,
       AllSkillEffects.DOUBLE_DARK_MATTER,
-      AllSkillEffects.ENERGY_MULTI,
+      AllSkillEffects.Honey_MULTI,
       AllSkillEffects.ALLOY_MULTI,
       AllSkillEffects.COMPUTING_MULTI,
       AllSkillEffects.SHIPYARD_MULTI,
@@ -486,8 +486,8 @@ export class AllSkillEffects {
       AllSkillEffects.DOUBLE_BATTLE_GAIN,
       AllSkillEffects.DOUBLE_MISSILE,
       AllSkillEffects.MOD_Polybees_MINER,
-      AllSkillEffects.MOD_CRYSTAL_MINER,
-      AllSkillEffects.MOD_ENERGY,
+      AllSkillEffects.MOD_Nectar_MINER,
+      AllSkillEffects.MOD_Honey,
       AllSkillEffects.MOD_CPU,
       AllSkillEffects.MOD_ALLOY,
       AllSkillEffects.MOD_WORKER,

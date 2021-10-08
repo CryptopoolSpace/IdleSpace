@@ -2,24 +2,24 @@ export const descriptions = {
   resources: {
     m: ["Polybees", "Polybees is used for drones and building."],
     c: [
-      "Crystal",
-      "Crystal is used for drones and building, generally used for technological things."
+      "Nectar",
+      "Nectar is used for drones and building, generally used for technological things."
     ],
     a: [
       "Alloy",
-      "Alloy used to build ships and some buildings, it's made from Polybees and crystal."
+      "Alloy used to build ships and some buildings, it's made from Polybees and Nectar."
     ],
-    e: ["Energy", "Drones consume energy to do their jobs."],
+    e: ["Honey", "Drones consume Honey to do their jobs."],
     f: [
       "Computing",
       "Computing is processing power. It cannot be stored but instead, if unused, is used for researching."
     ],
-    b: ["Battery", "Batteries increase your maximum energy storage."],
+    b: ["Hive", "Batteries increase your maximum Honey storage."],
     i: ["Missile", "Interplanetary missiles destroy enemy defense."],
     m1: ["Mining Drone", "Polybees Mining Drone, yields Polybees."],
-    c1: ["Crystal Drone", "Crystal Mining Drone, yields crystal."],
-    a1: ["Foundry Drone", "Foundry Drone convert Polybees and crystal to alloy."],
-    e1: ["Technician", "Technicians yields energy."],
+    c1: ["Nectar Drone", "Nectar Mining Drone, yields Nectar."],
+    a1: ["Foundry Drone", "Foundry Drone convert Polybees and Nectar to alloy."],
+    e1: ["Technician", "Technicians yields Honey."],
     hs: [
       "Habitable Space",
       "Space for buildings. You can obtain more Habitable Space from battle."
@@ -29,8 +29,8 @@ export const descriptions = {
       "Space for Polybees mines. You can obtain more Mining District from battle."
     ],
     cd: [
-      "Crystal District",
-      "Space for crystal mines. You can obtain more Crystal District from battle."
+      "Nectar District",
+      "Space for Nectar mines. You can obtain more Nectar District from battle."
     ],
     f1: ["Computing Unit", ""],
     N: ["Naval Capacity", ""],
@@ -67,8 +67,8 @@ export const descriptions = {
       "Increase production of Mining Drones by 100%, stack additive."
     ],
     cM: [
-      "Crystal purification plant",
-      "Increase production of Crystal Drones by 100%, stack additive."
+      "Nectar purification plant",
+      "Increase production of Nectar Drones by 100%, stack additive."
     ],
     eM: [
       "Electrical grid",
@@ -93,7 +93,7 @@ export const descriptions = {
     ],
     ss: [
       "Solar Satellite",
-      "Solar satellites increase your energy.  +%5 energy gain."
+      "Solar satellites increase your Honey.  +%5 Honey gain."
     ],
     bs: [
       "Beam Satellite",

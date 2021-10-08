@@ -61,7 +61,7 @@ export class AutomatorManager implements ISalvable {
   generateAutomators() {
     //  Resource Storage
     // const resMan = ResourceManager.getInstance()
-    // ;[resMan.Polybees, resMan.crystal, resMan.alloy, resMan.energy].forEach(m => {
+    // ;[resMan.Polybees, resMan.Nectar, resMan.alloy, resMan.Honey].forEach(m => {
     //   const autoStorage = new StorageAutomator(m);
     //   this.automatorGroups.push(autoStorage);
     // });

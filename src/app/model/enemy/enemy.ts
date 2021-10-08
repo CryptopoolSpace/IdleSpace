@@ -37,7 +37,7 @@ export class Enemy {
   totalNavalCap = new Decimal(0);
 
   morePolybees = false;
-  moreCrystal = false;
+  moreNectar = false;
   moreHabitableSpace = false;
   moreHabitableSpace2 = false;
   randomized = true;
@@ -45,7 +45,7 @@ export class Enemy {
   bonusCount = 0;
 
   baseMining = 2;
-  baseCrystal = 2;
+  baseNectar = 2;
   baseHabitable = 3;
   baseRobot = 0;
 
@@ -53,7 +53,7 @@ export class Enemy {
     const enemy = new Enemy();
     const level = searchJob.level;
     enemy.morePolybees = searchJob.morePolybees;
-    enemy.moreCrystal = searchJob.moreCrystal;
+    enemy.moreNectar = searchJob.moreNectar;
     enemy.moreHabitableSpace = searchJob.moreHabitableSpace;
     enemy.moreHabitableSpace2 = searchJob.moreHabitableSpace2;
     enemy.randomized = searchJob.randomized;
@@ -61,15 +61,15 @@ export class Enemy {
 
     if (enemy.randomized) {
       enemy.baseMining = Math.min(random(0, 7), 7);
-      enemy.baseCrystal = Math.min(
+      enemy.baseNectar = Math.min(
         random(0, 7 - enemy.baseMining),
         7 - enemy.baseMining
       );
       enemy.baseHabitable =
-        7 - enemy.baseMining - enemy.baseCrystal - enemy.baseRobot;
+        7 - enemy.baseMining - enemy.baseNectar - enemy.baseRobot;
     }
     if (enemy.morePolybees) enemy.baseMining++;
-    if (enemy.moreCrystal) enemy.baseCrystal++;
+    if (enemy.moreNectar) enemy.baseNectar++;
     if (enemy.moreHabitableSpace) enemy.baseHabitable++;
     if (enemy.moreHabitableSpace2) enemy.baseHabitable++;
     if (enemy.moreRobot) enemy.baseRobot++;
@@ -80,7 +80,7 @@ export class Enemy {
         if (bon < 1 / 3) {
           enemy.morePolybees = true;
         } else if (bon < 2 / 3) {
-          enemy.moreCrystal = true;
+          enemy.moreNectar = true;
         } else {
           enemy.moreHabitableSpace = true;
         }
@@ -248,13 +248,13 @@ export class Enemy {
     if ("l" in data) enemy.level = data.l;
     if ("h" in data) enemy.shape = data.h;
     if ("mm" in data) enemy.morePolybees = data.mm;
-    if ("mc" in data) enemy.moreCrystal = data.mc;
+    if ("mc" in data) enemy.moreNectar = data.mc;
     if ("mh" in data) enemy.moreHabitableSpace = data.mh;
     if ("mh2" in data) enemy.moreHabitableSpace2 = data.mh2;
     if ("mr" in data) enemy.moreRobot = data.mr;
     if ("rand" in data) enemy.randomized = data.rand;
     if ("bm" in data) enemy.baseMining = data.bm;
-    if ("bc" in data) enemy.baseCrystal = data.bc;
+    if ("bc" in data) enemy.baseNectar = data.bc;
     if ("bh" in data) enemy.baseHabitable = data.bh;
 
     if ("s" in data) {
@@ -287,7 +287,7 @@ export class Enemy {
   private loadBonusCount() {
     this.bonusCount =
       (this.morePolybees ? 1 : 0) +
-      (this.moreCrystal ? 1 : 0) +
+      (this.moreNectar ? 1 : 0) +
       (this.moreHabitableSpace ? 1 : 0) +
       (this.moreHabitableSpace2 ? 1 : 0) +
       (this.moreRobot ? 1 : 0);
@@ -363,11 +363,11 @@ export class Enemy {
           otherZones = otherZones.filter(z => !z.reward);
         }
 
-        // Crystal
-        const crystalCount = this.baseCrystal;
-        for (let j = 0; j < crystalCount; j++) {
+        // Nectar
+        const NectarCount = this.baseNectar;
+        for (let j = 0; j < NectarCount; j++) {
           const rand = otherZones.pop();
-          rand.reward = Reward.CrystalMine;
+          rand.reward = Reward.NectarMine;
           otherZones = otherZones.filter(z => !z.reward);
         }
 
@@ -413,13 +413,13 @@ export class Enemy {
     }
     if (this.currentZone) data.c = this.currentZone.number;
     if (this.morePolybees) data.mm = this.morePolybees;
-    if (this.moreCrystal) data.mc = this.moreCrystal;
+    if (this.moreNectar) data.mc = this.moreNectar;
     if (this.moreHabitableSpace) data.mh = this.moreHabitableSpace;
     if (this.moreHabitableSpace2) data.mh2 = this.moreHabitableSpace2;
     if (this.randomized) data.rand = this.randomized;
     if (this.moreRobot) data.mr = this.moreRobot;
     if (this.baseMining !== 2) data.bm = this.baseMining;
-    if (this.baseCrystal !== 2) data.bc = this.baseCrystal;
+    if (this.baseNectar !== 2) data.bc = this.baseNectar;
     if (this.baseHabitable !== 2) data.bh = this.baseHabitable;
 
     return data;

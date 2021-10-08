@@ -109,18 +109,18 @@
     </tr>
 
     <tr>
-      <td class="left">Total Energy</td>
+      <td class="left">Total Honey</td>
       <td>
         <app-formatted-quantity
-          [quantity]="design.totalEnergy"
+          [quantity]="design.totalHoney"
         ></app-formatted-quantity>
       </td>
       <td *ngIf="showDifference">
         <app-formatted-quantity
-          [quantity]="design.editable.totalEnergy"
+          [quantity]="design.editable.totalHoney"
           [ngClass]="{
-            'text-success': design.editable.totalEnergy.gt(design.totalEnergy),
-            'text-danger': design.editable.totalEnergy.lt(design.totalEnergy)
+            'text-success': design.editable.totalHoney.gt(design.totalHoney),
+            'text-danger': design.editable.totalHoney.lt(design.totalHoney)
           }"
         ></app-formatted-quantity>
       </td>

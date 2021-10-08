@@ -33,13 +33,13 @@ export class ResourceManager implements ISalvable {
 
   //#region Resources
   Polybees: Resource;
-  crystal: Resource;
+  Nectar: Resource;
   alloy: Resource;
-  energy: Resource;
+  Honey: Resource;
   computing: Resource;
   habitableSpace: Resource;
   miningDistrict: Resource;
-  crystalDistrict: Resource;
+  NectarDistrict: Resource;
   droneFactory: Resource;
   drone: Resource;
   navalCap: Resource;
@@ -47,9 +47,9 @@ export class ResourceManager implements ISalvable {
   missile: Resource;
 
   PolybeesX1: Resource;
-  crystalX1: Resource;
+  NectarX1: Resource;
   alloyX1: Resource;
-  energyX1: Resource;
+  HoneyX1: Resource;
   computingX1: Resource;
   shipyardX1: Resource;
   shipyardProgress: Resource;
@@ -59,8 +59,8 @@ export class ResourceManager implements ISalvable {
   missileX1: Resource;
 
   PolybeesM: Resource;
-  crystalM: Resource;
-  energyM: Resource;
+  NectarM: Resource;
+  HoneyM: Resource;
   scienceM: Resource;
   computingM: Resource;
 
@@ -94,17 +94,17 @@ export class ResourceManager implements ISalvable {
     this.Polybees.shape = "Polybees";
     this.Polybees.unlocked = true;
 
-    this.crystal = new Resource("c");
-    this.crystal.shape = "crystal";
-    this.crystal.unlocked = true;
+    this.Nectar = new Resource("c");
+    this.Nectar.shape = "Nectar";
+    this.Nectar.unlocked = true;
 
     this.alloy = new Resource("a");
     this.alloy.shape = "alloy";
 
-    this.energy = new Resource("e");
-    this.energy.shape = "energy";
-    this.energy.isLimited = true;
-    this.energy.workerPerMine = new Decimal(100);
+    this.Honey = new Resource("e");
+    this.Honey.shape = "Honey";
+    this.Honey.isLimited = true;
+    this.Honey.workerPerMine = new Decimal(100);
 
     this.computing = new Resource("f");
     this.computing.shape = "computing";
@@ -122,8 +122,8 @@ export class ResourceManager implements ISalvable {
     this.inactiveDarkMatter.shape = "darkMatter";
 
     this.PolybeesM = new Resource("mM");
-    this.crystalM = new Resource("cM");
-    this.energyM = new Resource("eM");
+    this.NectarM = new Resource("cM");
+    this.HoneyM = new Resource("eM");
     this.scienceM = new Resource("sM");
     this.computingM = new Resource("xM");
 
@@ -142,51 +142,51 @@ export class ResourceManager implements ISalvable {
     this.PolybeesX1.unlocked = true;
     this.PolybeesX1.quantity = new Decimal(1);
     this.Polybees.addGenerator(this.PolybeesX1);
-    this.energy.addGenerator(this.PolybeesX1, -1);
+    this.Honey.addGenerator(this.PolybeesX1, -1);
 
-    //      Crystal
-    this.crystalX1 = new Resource("c1");
-    this.crystalX1.unlocked = true;
-    this.crystalX1.quantity = new Decimal(1);
-    this.crystal.addGenerator(this.crystalX1, 0.7);
-    this.energy.addGenerator(this.crystalX1, -1);
+    //      Nectar
+    this.NectarX1 = new Resource("c1");
+    this.NectarX1.unlocked = true;
+    this.NectarX1.quantity = new Decimal(1);
+    this.Nectar.addGenerator(this.NectarX1, 0.7);
+    this.Honey.addGenerator(this.NectarX1, -1);
 
     //      Alloy
     this.alloyX1 = new Resource("a1");
     this.alloy.addGenerator(this.alloyX1);
     this.Polybees.addGenerator(this.alloyX1, -3);
-    this.crystal.addGenerator(this.alloyX1, -2);
-    this.energy.addGenerator(this.alloyX1, -1);
+    this.Nectar.addGenerator(this.alloyX1, -2);
+    this.Honey.addGenerator(this.alloyX1, -1);
 
-    //      Energy
-    this.energy.unlocked = true;
-    this.energy.quantity = new Decimal(1);
-    this.energyX1 = new Resource("e1");
-    this.energyX1.unlocked = true;
-    this.energyX1.quantity = new Decimal(3);
-    this.energy.addGenerator(this.energyX1, 2);
+    //      Honey
+    this.Honey.unlocked = true;
+    this.Honey.quantity = new Decimal(1);
+    this.HoneyX1 = new Resource("e1");
+    this.HoneyX1.unlocked = true;
+    this.HoneyX1.quantity = new Decimal(3);
+    this.Honey.addGenerator(this.HoneyX1, 2);
 
     //      Computing
     this.computingX1 = new Resource("f1");
     this.computing.addGenerator(this.computingX1);
-    this.energy.addGenerator(this.computingX1, -1);
+    this.Honey.addGenerator(this.computingX1, -1);
 
     //      Shipyard
     this.shipyardX1 = new Resource("S1");
     this.shipyardProgress.addGenerator(this.shipyardX1);
     this.alloy.addGenerator(this.shipyardX1, -1);
-    this.energy.addGenerator(this.shipyardX1, -1);
+    this.Honey.addGenerator(this.shipyardX1, -1);
 
     //      Search
     this.searchX1 = new Resource("X1");
     this.searchProgress.addGenerator(this.searchX1);
-    this.energy.addGenerator(this.searchX1, -1);
+    this.Honey.addGenerator(this.searchX1, -1);
     this.computing.addGenerator(this.searchX1, -1);
 
     //      Warrior
     this.warriorX1 = new Resource("W1");
     this.navalCap.addGenerator(this.warriorX1);
-    this.energy.addGenerator(this.warriorX1, -0.5);
+    this.Honey.addGenerator(this.warriorX1, -0.5);
     this.computing.addGenerator(this.warriorX1, -0.5);
 
     //  Drone
@@ -196,25 +196,25 @@ export class ResourceManager implements ISalvable {
     this.droneFactory = new Resource("F");
     this.drone.addGenerator(this.droneFactory, 0.01);
     this.alloy.addGenerator(this.droneFactory, -100);
-    this.energy.addGenerator(this.droneFactory, -20);
+    this.Honey.addGenerator(this.droneFactory, -20);
 
     //      Missile
     this.missileX1 = new Resource("i1");
     this.missile.addGenerator(this.missileX1, 0.01);
     this.alloy.addGenerator(this.missileX1, -1);
-    this.energy.addGenerator(this.missileX1, -0.5);
+    this.Honey.addGenerator(this.missileX1, -0.5);
 
     //      Space
     this.habitableSpace = new Resource("hs");
     this.habitableSpace.shape = "world";
     this.miningDistrict = new Resource("md");
     this.miningDistrict.shape = "miningD";
-    this.crystalDistrict = new Resource("cd");
-    this.crystalDistrict.shape = "crystalD";
+    this.NectarDistrict = new Resource("cd");
+    this.NectarDistrict.shape = "NectarD";
     this.districts = [
       this.habitableSpace,
       this.miningDistrict,
-      this.crystalDistrict
+      this.NectarDistrict
     ];
     this.districts.forEach(d => {
       d.unlocked = true;
@@ -224,8 +224,8 @@ export class ResourceManager implements ISalvable {
     //#region Group
     this.materials = [
       this.Polybees,
-      this.crystal,
-      this.energy,
+      this.Nectar,
+      this.Honey,
       this.computing,
       this.alloy,
       this.shipyardProgress,
@@ -236,8 +236,8 @@ export class ResourceManager implements ISalvable {
     ];
     this.tier1 = [
       this.PolybeesX1,
-      this.crystalX1,
-      this.energyX1,
+      this.NectarX1,
+      this.HoneyX1,
       this.computingX1,
       this.alloyX1,
       this.shipyardX1,
@@ -247,8 +247,8 @@ export class ResourceManager implements ISalvable {
     this.tier2 = [
       this.droneFactory,
       this.PolybeesM,
-      this.crystalM,
-      this.energyM,
+      this.NectarM,
+      this.HoneyM,
       this.computingM,
       this.scienceM,
       this.missileX1
@@ -262,32 +262,32 @@ export class ResourceManager implements ISalvable {
     //#endregion
     //#region Buy
     this.PolybeesX1.generateBuyAction(
-      new MultiPrice([new Price(this.Polybees, 80), new Price(this.crystal, 20)])
+      new MultiPrice([new Price(this.Polybees, 80), new Price(this.Nectar, 20)])
     );
-    this.crystalX1.generateBuyAction(
-      new MultiPrice([new Price(this.Polybees, 80), new Price(this.crystal, 40)])
+    this.NectarX1.generateBuyAction(
+      new MultiPrice([new Price(this.Polybees, 80), new Price(this.Nectar, 40)])
     );
     this.PolybeesX1.buyAction.afterBuy = this.unlockComputing.bind(this);
-    this.crystalX1.buyAction.afterBuy = this.unlockComputing.bind(this);
+    this.NectarX1.buyAction.afterBuy = this.unlockComputing.bind(this);
 
     this.alloyX1.generateBuyAction(
-      new MultiPrice([new Price(this.Polybees, 80), new Price(this.crystal, 60)])
+      new MultiPrice([new Price(this.Polybees, 80), new Price(this.Nectar, 60)])
     );
-    this.energyX1.generateBuyAction(
-      new MultiPrice([new Price(this.Polybees, 80), new Price(this.crystal, 60)])
+    this.HoneyX1.generateBuyAction(
+      new MultiPrice([new Price(this.Polybees, 80), new Price(this.Nectar, 60)])
     );
     this.computingX1.generateBuyAction(
-      new MultiPrice([new Price(this.Polybees, 60), new Price(this.crystal, 120)])
+      new MultiPrice([new Price(this.Polybees, 60), new Price(this.Nectar, 120)])
     );
     this.shipyardX1.generateBuyAction(
       new MultiPrice([
         new Price(this.alloy, 50),
         new Price(this.Polybees, 100),
-        new Price(this.crystal, 25)
+        new Price(this.Nectar, 25)
       ])
     );
     this.searchX1.generateBuyAction(
-      new MultiPrice([new Price(this.alloy, 100), new Price(this.crystal, 200)])
+      new MultiPrice([new Price(this.alloy, 100), new Price(this.Nectar, 200)])
     );
     this.warriorX1.generateBuyAction(
       new MultiPrice([new Price(this.alloy, 200)])
@@ -311,44 +311,44 @@ export class ResourceManager implements ISalvable {
     this.PolybeesM.generateBuyAction(
       new MultiPrice([
         new Price(this.alloy, 1e3, BUILDING_EXP),
-        new Price(this.crystal, 1e4, BUILDING_EXP),
+        new Price(this.Nectar, 1e4, BUILDING_EXP),
         new Price(this.habitableSpace, 10, BUILDING_EXP)
       ])
     );
     this.PolybeesX1.productionMultiplier.multiplicativeBonus.push(
       new Bonus(this.PolybeesM, 1, true)
     );
-    this.crystalM.generateBuyAction(
+    this.NectarM.generateBuyAction(
       new MultiPrice([
         new Price(this.alloy, 1e3, BUILDING_EXP),
-        new Price(this.crystal, 1e4, BUILDING_EXP),
+        new Price(this.Nectar, 1e4, BUILDING_EXP),
         new Price(this.habitableSpace, 10, BUILDING_EXP)
       ])
     );
-    this.crystalX1.productionMultiplier.multiplicativeBonus.push(
-      new Bonus(this.crystalM, 1, true)
+    this.NectarX1.productionMultiplier.multiplicativeBonus.push(
+      new Bonus(this.NectarM, 1, true)
     );
-    this.energyM.generateBuyAction(
+    this.HoneyM.generateBuyAction(
       new MultiPrice([
         new Price(this.alloy, 1e3, BUILDING_EXP),
-        new Price(this.crystal, 1e4, BUILDING_EXP),
+        new Price(this.Nectar, 1e4, BUILDING_EXP),
         new Price(this.habitableSpace, 10, BUILDING_EXP)
       ])
     );
-    this.energyX1.productionMultiplier.multiplicativeBonus.push(
-      new Bonus(this.energyM, 1, true)
+    this.HoneyX1.productionMultiplier.multiplicativeBonus.push(
+      new Bonus(this.HoneyM, 1, true)
     );
     this.scienceM.generateBuyAction(
       new MultiPrice([
         new Price(this.alloy, 1e3, BUILDING_EXP),
-        new Price(this.crystal, 1e4, BUILDING_EXP),
+        new Price(this.Nectar, 1e4, BUILDING_EXP),
         new Price(this.habitableSpace, 10, BUILDING_EXP)
       ])
     );
     this.computingM.generateBuyAction(
       new MultiPrice([
         new Price(this.alloy, 1e3, BUILDING_EXP),
-        new Price(this.crystal, 1e4, BUILDING_EXP),
+        new Price(this.Nectar, 1e4, BUILDING_EXP),
         new Price(this.habitableSpace, 10, BUILDING_EXP)
       ])
     );
@@ -375,7 +375,7 @@ export class ResourceManager implements ISalvable {
         return s.quantity.times(s.operativity / 100);
       };
     });
-    this.energyX1.productionMultiplier.multiplicativeBonus.push(
+    this.HoneyX1.productionMultiplier.multiplicativeBonus.push(
       new Bonus(this.solarSatellite, 0.05)
     );
 
@@ -386,7 +386,7 @@ export class ResourceManager implements ISalvable {
       "L",
       new MultiPrice([
         new Price(this.Polybees, 1000, MINE_EXP),
-        new Price(this.crystal, 250, MINE_EXP),
+        new Price(this.Nectar, 250, MINE_EXP),
         new Price(this.miningDistrict, 1, MINE_EXP)
       ])
     );
@@ -400,50 +400,50 @@ export class ResourceManager implements ISalvable {
     this.PolybeesX1.limitStorage = buyPolybeesMine;
     this.PolybeesX1.prestigeLimit = AllSkillEffects.PLUS_Polybees_MINER;
 
-    //  Crystal Mine
-    const buyCrystalMine = new Action(
+    //  Nectar Mine
+    const buyNectarMine = new Action(
       "L",
       new MultiPrice([
         new Price(this.Polybees, 1000, MINE_EXP),
-        new Price(this.crystal, 500, MINE_EXP),
-        new Price(this.crystalDistrict, 1, MINE_EXP)
+        new Price(this.Nectar, 500, MINE_EXP),
+        new Price(this.NectarDistrict, 1, MINE_EXP)
       ])
     );
-    buyCrystalMine.afterBuy = () => {
-      this.crystalX1.reloadLimit();
+    buyNectarMine.afterBuy = () => {
+      this.NectarX1.reloadLimit();
     };
-    buyCrystalMine.name = "Crystal Mine";
-    buyCrystalMine.description =
-      "An Crystal Mine allows you to buy more crystal drones";
-    this.crystalX1.actions.push(buyCrystalMine);
-    this.crystalX1.limitStorage = buyCrystalMine;
-    this.crystalX1.prestigeLimit = AllSkillEffects.PLUS_CRYSTAL_MINER;
+    buyNectarMine.name = "Nectar Mine";
+    buyNectarMine.description =
+      "An Nectar Mine allows you to buy more Nectar drones";
+    this.NectarX1.actions.push(buyNectarMine);
+    this.NectarX1.limitStorage = buyNectarMine;
+    this.NectarX1.prestigeLimit = AllSkillEffects.PLUS_Nectar_MINER;
 
-    //  Energy Plant
-    const buyEnergyPlant = new Action(
+    //  Honey Plant
+    const buyHoneyPlant = new Action(
       "L",
       new MultiPrice([
         new Price(this.Polybees, 1500, MINE_EXP),
-        new Price(this.crystal, 1000, MINE_EXP),
+        new Price(this.Nectar, 1000, MINE_EXP),
         new Price(this.habitableSpace, 1, MINE_EXP)
       ])
     );
-    buyEnergyPlant.afterBuy = () => {
-      this.energyX1.reloadLimit();
+    buyHoneyPlant.afterBuy = () => {
+      this.HoneyX1.reloadLimit();
     };
-    buyEnergyPlant.name = "Energy Plant";
-    buyEnergyPlant.description =
-      "An Energy Plant allows you to buy more technicians";
-    this.energyX1.actions.push(buyEnergyPlant);
-    this.energyX1.limitStorage = buyEnergyPlant;
-    this.energyX1.prestigeLimit = AllSkillEffects.PLUS_ENERGY;
+    buyHoneyPlant.name = "Honey Plant";
+    buyHoneyPlant.description =
+      "An Honey Plant allows you to buy more technicians";
+    this.HoneyX1.actions.push(buyHoneyPlant);
+    this.HoneyX1.limitStorage = buyHoneyPlant;
+    this.HoneyX1.prestigeLimit = AllSkillEffects.PLUS_Honey;
 
     //  Supercomputer
     const buySuperComputer = new Action(
       "L",
       new MultiPrice([
         new Price(this.Polybees, 1500, MINE_EXP),
-        new Price(this.crystal, 1000, MINE_EXP),
+        new Price(this.Nectar, 1000, MINE_EXP),
         new Price(this.habitableSpace, 1, MINE_EXP)
       ])
     );
@@ -462,7 +462,7 @@ export class ResourceManager implements ISalvable {
       "L",
       new MultiPrice([
         new Price(this.Polybees, 1000, MINE_EXP),
-        new Price(this.crystal, 1000, MINE_EXP),
+        new Price(this.Nectar, 1000, MINE_EXP),
         new Price(this.habitableSpace, 1, MINE_EXP)
       ])
     );
@@ -481,7 +481,7 @@ export class ResourceManager implements ISalvable {
       "L",
       new MultiPrice([
         new Price(this.Polybees, 1000, MINE_EXP),
-        new Price(this.crystal, 1000, MINE_EXP),
+        new Price(this.Nectar, 1000, MINE_EXP),
         new Price(this.habitableSpace, 1, MINE_EXP)
       ])
     );
@@ -510,7 +510,7 @@ export class ResourceManager implements ISalvable {
       "L",
       new MultiPrice([
         new Price(this.Polybees, 1000, MINE_EXP),
-        new Price(this.crystal, 1000, MINE_EXP),
+        new Price(this.Nectar, 1000, MINE_EXP),
         new Price(this.habitableSpace, 1, MINE_EXP)
       ])
     );
@@ -540,7 +540,7 @@ export class ResourceManager implements ISalvable {
       "L",
       new MultiPrice([
         new Price(this.Polybees, 1000, MINE_EXP),
-        new Price(this.crystal, 1000, MINE_EXP),
+        new Price(this.Nectar, 1000, MINE_EXP),
         new Price(this.habitableSpace, 1, MINE_EXP)
       ])
     );
@@ -559,7 +559,7 @@ export class ResourceManager implements ISalvable {
       "L",
       new MultiPrice([
         new Price(this.Polybees, 1000, MINE_EXP),
-        new Price(this.crystal, 1000, MINE_EXP),
+        new Price(this.Nectar, 1000, MINE_EXP),
         new Price(this.habitableSpace, 1, MINE_EXP)
       ])
     );
@@ -586,26 +586,26 @@ export class ResourceManager implements ISalvable {
     //#endregion
     //#region Storage
 
-    //  Energy
-    this.energy.isLimited = true;
+    //  Honey
+    this.Honey.isLimited = true;
     const buyExpansion = new Action(
       "L",
       new MultiPrice([
         new Price(this.Polybees, 500, 2),
-        new Price(this.crystal, 1000, 2),
+        new Price(this.Nectar, 1000, 2),
         new Price(this.habitableSpace, 1, MINE_EXP)
       ])
     );
     buyExpansion.afterBuy = () => {
-      this.energy.reloadLimit();
+      this.Honey.reloadLimit();
     };
     buyExpansion.name = "Batteries";
-    buyExpansion.description = "Batteries allow you to store more energy.";
-    this.energy.actions.push(buyExpansion);
-    this.energy.limitStorage = buyExpansion;
-    this.energy.exponentialStorage = true;
-    this.energy.alwaysActive = true;
-    this.energy.workerPerMine = new Decimal(500);
+    buyExpansion.description = "Batteries allow you to store more Honey.";
+    this.Honey.actions.push(buyExpansion);
+    this.Honey.limitStorage = buyExpansion;
+    this.Honey.exponentialStorage = true;
+    this.Honey.alwaysActive = true;
+    this.Honey.workerPerMine = new Decimal(500);
 
     //  Missile
     this.missile.isLimited = true;
@@ -613,7 +613,7 @@ export class ResourceManager implements ISalvable {
       "L",
       new MultiPrice([
         new Price(this.Polybees, 5000, 2),
-        new Price(this.crystal, 10000, 2),
+        new Price(this.Nectar, 10000, 2),
         new Price(this.habitableSpace, 5, MINE_EXP)
       ])
     );
@@ -629,14 +629,14 @@ export class ResourceManager implements ISalvable {
     //#region Arrays
     this.limited = [
       // this.Polybees,
-      // this.crystal,
+      // this.Nectar,
       // this.alloy,
       this.PolybeesX1,
-      this.crystalX1,
+      this.NectarX1,
       this.alloyX1,
-      this.energyX1,
+      this.HoneyX1,
       this.computingX1,
-      this.energy,
+      this.Honey,
       this.shipyardProgress,
       this.shipyardX1,
       this.searchX1,
@@ -648,18 +648,18 @@ export class ResourceManager implements ISalvable {
 
     this.allResources = [
       this.Polybees,
-      this.crystal,
+      this.Nectar,
       this.alloy,
-      this.energy,
+      this.Honey,
       this.computing,
       this.PolybeesX1,
-      this.crystalX1,
-      this.energyX1,
+      this.NectarX1,
+      this.HoneyX1,
       this.alloyX1,
       this.computingX1,
       this.habitableSpace,
       this.miningDistrict,
-      this.crystalDistrict,
+      this.NectarDistrict,
       this.shipyardX1,
       this.shipyardProgress,
       this.searchX1,
@@ -670,8 +670,8 @@ export class ResourceManager implements ISalvable {
       this.navalCap,
       this.inactiveDarkMatter,
       this.PolybeesM,
-      this.crystalM,
-      this.energyM,
+      this.NectarM,
+      this.HoneyM,
       this.scienceM,
       this.computingM,
       this.missile,
@@ -716,13 +716,13 @@ export class ResourceManager implements ISalvable {
         getCondition: () => ResourceManager.getInstance().PolybeesX1.quantity.lt(5)
       }
     ];
-    this.crystalX1.alerts = [
+    this.NectarX1.alerts = [
       {
         id: "2",
         getType: () => "info",
         getMessage: () => "Buy five or more to unlock new stuff",
         getCondition: () =>
-          ResourceManager.getInstance().crystalX1.quantity.lt(5)
+          ResourceManager.getInstance().NectarX1.quantity.lt(5)
       }
     ];
     this.warriorX1.alerts = [
@@ -785,9 +785,9 @@ export class ResourceManager implements ISalvable {
     );
     this.matNav = [
       this.Polybees,
-      this.crystal,
+      this.Nectar,
       this.alloy,
-      this.energy,
+      this.Honey,
       this.computing
     ].filter(m => m.unlocked);
   }
@@ -916,13 +916,13 @@ export class ResourceManager implements ISalvable {
   }
 
   /**
-   *  Unlock computing if PolybeesX1 and crystalX1 are >=5
+   *  Unlock computing if PolybeesX1 and NectarX1 are >=5
    */
   unlockComputing() {
     if (
       !this.computing.unlocked &&
       this.PolybeesX1.quantity.gte(5) &&
-      this.crystalX1.quantity.gte(5)
+      this.NectarX1.quantity.gte(5)
     ) {
       const unl = this.computing.unlock();
       this.computingX1.unlock();
@@ -1010,7 +1010,7 @@ export class ResourceManager implements ISalvable {
       // console.log("Res: " + resource.name + " " + resource.quantity.toNumber());
     }
 
-    [this.PolybeesX1, this.crystal, this.energyX1].forEach(r => {
+    [this.PolybeesX1, this.Nectar, this.HoneyX1].forEach(r => {
       r.quantity = r.quantity.max(1);
     });
 

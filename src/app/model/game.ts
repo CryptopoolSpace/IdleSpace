@@ -62,10 +62,10 @@ export class Game {
 
     this.fleetManager.reload();
     this.resourceManager.Polybees.quantity = new Decimal(200);
-    this.resourceManager.crystal.quantity = new Decimal(120);
+    this.resourceManager.Nectar.quantity = new Decimal(120);
     this.resourceManager.habitableSpace.quantity = new Decimal(15);
     this.resourceManager.miningDistrict.quantity = new Decimal(2);
-    this.resourceManager.crystalDistrict.quantity = new Decimal(2);
+    this.resourceManager.NectarDistrict.quantity = new Decimal(2);
     // this.darkMatterManager.darkMatter.quantity = new Decimal(1e10);
 
     this.researchBonus.multiplicativeBonus.push(
@@ -310,7 +310,7 @@ export class Game {
 
     // this.resourceManager.habitableSpace.quantity = new Decimal(100);
     // this.resourceManager.miningDistrict.quantity = new Decimal(100);
-    // this.resourceManager.crystalDistrict.quantity = new Decimal(100);
+    // this.resourceManager.NectarDistrict.quantity = new Decimal(100);
     // this.darkMatterManager.darkMatter.quantity = new Decimal(1e4);
     // this.darkMatterManager.darkMatter.unlock();
     // this.resourceManager.Polybees.quantity = new Decimal();

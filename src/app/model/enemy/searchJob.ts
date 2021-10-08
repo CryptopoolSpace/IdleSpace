@@ -15,7 +15,7 @@ export class SearchJob implements IJob {
   progressPercent = 0;
 
   morePolybees = false;
-  moreCrystal = false;
+  moreNectar = false;
   moreHabitableSpace = false;
   moreHabitableSpace2 = false;
   randomized = false;
@@ -37,7 +37,7 @@ export class SearchJob implements IJob {
     if ("l" in data) job.level = data.l;
 
     if ("mm" in data) job.morePolybees = data.mm;
-    if ("mc" in data) job.moreCrystal = data.mc;
+    if ("mc" in data) job.moreNectar = data.mc;
     if ("mh" in data) job.moreHabitableSpace = data.mh;
     if ("mh2" in data) job.moreHabitableSpace2 = data.mh2;
     if ("ran" in data) job.randomized = data.ran;
@@ -69,7 +69,7 @@ export class SearchJob implements IJob {
   generateNameDescription() {
     const bonusCount =
       (this.morePolybees ? 1 : 0) +
-      (this.moreCrystal ? 1 : 0) +
+      (this.moreNectar ? 1 : 0) +
       (this.moreRobot ? 1 : 0) +
       (this.moreHabitableSpace || this.moreHabitableSpace2 ? 1 : 0);
     switch (bonusCount) {
@@ -79,8 +79,8 @@ export class SearchJob implements IJob {
       case 1:
         this.name = this.morePolybees
           ? "Polybees search"
-          : this.moreCrystal
-          ? "Crystal search"
+          : this.moreNectar
+          ? "Nectar search"
           : this.moreHabitableSpace
           ? "Habitable space search"
           : this.moreRobot
@@ -90,9 +90,9 @@ export class SearchJob implements IJob {
       case 2:
       case 3:
         this.name = this.morePolybees ? "Polybees & " : "";
-        this.name += this.moreCrystal ? "Crystal " : "";
+        this.name += this.moreNectar ? "Nectar " : "";
         this.name +=
-          this.moreCrystal &&
+          this.moreNectar &&
           (this.moreHabitableSpace ||
             this.moreHabitableSpace2 ||
             this.moreRobot)
@@ -118,7 +118,7 @@ export class SearchJob implements IJob {
     this.description =
       "Level " + EnemyManager.romanPipe.transform(this.level) + " ";
     if (this.morePolybees) this.description += "More Polybeess ";
-    if (this.moreCrystal) this.description += "More Crystals ";
+    if (this.moreNectar) this.description += "More Nectars ";
     if (this.moreHabitableSpace) this.description += "More Space ";
     if (this.moreHabitableSpace2) this.description += "Even More Space ";
     if (this.moreRobot) this.description += "More Robots ";
@@ -168,7 +168,7 @@ export class SearchJob implements IJob {
     data.t = this.total;
     data.l = this.level;
     if (this.morePolybees) data.mm = this.morePolybees;
-    if (this.moreCrystal) data.mc = this.moreCrystal;
+    if (this.moreNectar) data.mc = this.moreNectar;
     if (this.moreHabitableSpace2) data.mh2 = this.moreHabitableSpace2;
     if (this.moreRobot) data.mr = this.moreRobot;
     return data;

@@ -12,9 +12,9 @@ describe("MultiBuyAction", () => {
   });
 
   it("prices test", () => {
-    const act1 = game.resourceManager.crystalX1.buyAction;
+    const act1 = game.resourceManager.NectarX1.buyAction;
     const act2 = game.resourceManager.PolybeesX1.buyAction;
-    game.resourceManager.crystalX1.quantity = new Decimal(5);
+    game.resourceManager.NectarX1.quantity = new Decimal(5);
     act1.quantity = new Decimal(5);
     const multiBuy = new MultiBuyAction([act1, act2]);
     act1.reload();

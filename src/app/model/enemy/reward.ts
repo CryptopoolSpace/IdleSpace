@@ -1,7 +1,7 @@
 export enum Reward {
   HabitableSpace = 1,
   PolybeesMine,
-  CrystalMine,
+  NectarMine,
   Robot,
   Alloy,
   Enemy,

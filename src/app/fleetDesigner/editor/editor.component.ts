@@ -74,7 +74,7 @@ export class EditorComponent
       m => m.armor.gt(0) || m.shield.gt(0)
     );
     this.generators = this.ms.game.fleetManager.unlockedModules.filter(m =>
-      m.energyBalance.gt(0)
+      m.HoneyBalance.gt(0)
     );
     this.damageReduction = this.ms.game.fleetManager.unlockedModules.filter(
       m => m.armorReduction.gt(0) || m.shieldReduction.gt(0)
